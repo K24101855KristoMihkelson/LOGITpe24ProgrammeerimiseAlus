@@ -1,0 +1,82 @@
+# kõik küsimised tsükliga
+# kõik joonistamised tsükliga
+# küik sisendid töödelda
+#
+# kirjuta programm mis
+# küsib kasutajalt tema tunnusjooni
+# mis on ta nahavärv ("kasutaja ütleb inglisekeelse värvi")
+# kas tal on müts (kui jah siis valikus on nokamüts, torumüts ja fedora, kui ei, siis joonista juuksed)
+# milline tuju tal on (hea C:, tavaline :I, halb :C, üllatunud :O, tülpinud I:C)
+# ja mis ilm on (pilvitu = sinine taust, pilvine = valge taust, vihmane= hall taust, )
+# programm tagastab pildi kasutajale temast praegusel ajahetkel.
+
+from random import randint
+from tkinter import*
+nahavärv = ""
+while(nahavärv == ""):
+    nahavärv = input("Sisesta oma nahavärv inglise keeles:").capitalize().lower()
+
+    if nahavärv == "pruun":
+        fill = "brown"
+    elif nahavärv == "valge":
+        fill = "white"
+    elif nahavärv == "tumepruun":
+        fill = "dark_brown"
+    elif nahavärv == "must":
+        fill = "black"
+elif tunnusjooned == "müts":
+    müts = ""
+    while(müts == ""):
+         müts = input("Kas sul on olemas mütsid: (jah/ei)").lower()
+         if müts == "jah":
+            print("valikus on nokamüts,torumüts,fedora")
+            nokamüts = ""
+            while(nokamüts == ""):
+                  nokamüts = int(input("joonistatakse nokamütsi: (jah/ei)")).lower()
+                  if nokamüts == "jah":
+                     raam = Tk()
+                     raam.title("nokamüts tahvel")
+                     tahvel = Canvas(raam, width=600, height=600)
+                     tahvel.create_polygon(100,300,200,200,400,200,500,300,500,400,100,400,width = 2, outline = "black", fill = "white")
+                     tahvel.create_line(000,400,100,400,width = 8)
+            torumüts = ""
+            while(torumüts == ""):
+                 torümüts = input("joonistatakse torumütsi:").lower()
+                 if torumüts == "jah":
+                    raam = Tk()
+                    raam.title("empty tahvel")
+                    tahvel = Canvas(raam, width=600, height=600)
+                    tahvel.create_polygon(100,400,100,100,400,100,400,400,width = 2, outline = "black", fill = "white")
+                    tahvel.create_line(000,400,500,400,width = 10)
+            fedora = ""
+            while(fedora == ""):
+                  fedora = input("Joonistatakse fedorat")
+                  if fedora == "jah":
+                     raam = Tk()
+                     raam.title("empty tahvel")
+                     tahvel = Canvas(raam, width=600, height=600)
+                     tahvel.create_polygon(100,400,100,100,200,200,300,100,300,400,width = 2, outline = "black", fill = "white")
+                     tahvel.create_line(000,400,400,400,width = 10)
+else:
+     raam = Tk()
+     raam.title("soeng tahvel")
+     tahvel = Canvas(raam, width=600, height=600)
+     tahvel.create_polygon(200,400,200,300,100,100,300,400,300,300,200,100,400,400,400,300,300,100,500,400,width = 2, outline = "black", fill = "white")
+     tahvel.create_line(200,400,500,400,width = 10)
+tuju = ""
+while(tuju == "Milline tuju olek on sul: hea,tavaline,halb,tüüpiline"):
+      tuju = input(":").lower()
+      hea = ""
+      tavaline = ""
+      halb = ""
+      tülpiline = ""
+      if tuju == "hea":
+         raam = Tk()
+         raam.title("empty tahvel")
+         tahvel = Canvas(raam, width=600, height=600)
+         tahvel.create_line(50,50,60,100,100,110,140,100,150,50)
+         tahvel.create_oval(60,40,60,40,fill = "green",outline = "green",width = 10)
+         tahvel.create_oval(120,40,120,40,fill = "green",outline = "green",width = 10)
+     
+                 
+
