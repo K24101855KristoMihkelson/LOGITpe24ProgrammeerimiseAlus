@@ -5,7 +5,7 @@ while(perekonnaliikmed == ""):
         lemmikloomanimed = []
         hetkesisestus = "a"
         while(hetkesisestus != ""):
-            lemmikloomanimed = input("Sisestage välja perekonnaliikmete lemmiklooma nimed,kui rohkem ei ole,vajuta enter")
+            hetkesisestus = input("Sisestage välja perekonnaliikmete lemmiklooma nimed,kui rohkem ei ole,vajuta enter")
             lemmikloomanimed.append(hetkesisestus)
         print(lemmikloomanimed)
     elif perekonnaliikmed == "ei":
@@ -16,12 +16,12 @@ while(perekonnaliikmed == ""):
                 loomanimi = []
                 hetkesisestus = "m"
                 while(hetkesisestus != ""):
-                    loomanimi = input("Sisestage oma lemmikloomade nimed siia,kui rohkem ei ole,siis vajuta enter")
+                    hetkesisestus = input("Sisestage oma lemmikloomade nimed siia,kui rohkem ei ole,siis vajuta enter")
                     loomanimi.append(hetkesisestus)
                 print(loomanimi)
             elif lemmikloomanimi == "ei":
                 kuiloomipole = ""
-                while(kuiloomipole = ""):
+                while(kuiloomipole == ""):
                     kuiloomipole = input("Kahju,pesaleidjas on palju kasse kes tahaksid kodu")
 
                 

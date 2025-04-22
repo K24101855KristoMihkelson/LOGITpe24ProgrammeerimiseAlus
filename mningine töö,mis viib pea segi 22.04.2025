@@ -1,0 +1,22 @@
+# kirjuta programm mis
+#
+# küsib kasutajalt kas ta tahab näha ilusat pilti.
+# kui kasutaja vastab jah siis
+# - küsi kasutajalt tema lemmikvärvi
+# - küsi kasutajalt tema vanust.
+# - jaga 360/vanusega
+# - joonista turteliga pilt kus on tema lemmikvärviga ruudud
+# - ruute joonistatakse vanuse arvu võrra, kus iga järgnev ruut on tehte tulemuse kraadi võrra eelmisest keeratud
+# kui kasutaja vastab ei siis
+# - ütle talle
+# - - kui ta on noorem kui 18, "headaega, nolk"
+# - - kui ta on vanem kui 17, "head päeva jätku"
+
+
+from turtle import*
+
+iluspilt = ""
+while(iluspilt == ""):
+    iluspilt = input("Sa tahad näha ilusat pilti")
+    if iluspilt == "jah":
+        
