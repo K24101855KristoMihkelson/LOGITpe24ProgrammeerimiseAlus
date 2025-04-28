@@ -14,78 +14,45 @@
 # - kui arv on rohkem kui 10, "siis, pole mul siin midagi öelda härra movieguru, headaega"
 
 from random import randint
-Lfilm = ""
-Lfilm_nimetused = ["Kevad","Suvi","Sügis","Talv"]
 
 lemmikfilmid = []
 hetkesisestus = "a"
 while(hetkesisestus != ""):
     hetkesisestus = input("Sisestage enda lemmikud filmid,kui rohkem ei ole,vajutage enter")
     if hetkesisestus != "":
-        filmi_nimetus = ""
-        filmi_nimetus = input(f"Sisesta filmi nimetus '{hetkesisestus}': ")
         lemmikfilmid.append(hetkesisestus)
-        Lfilm_nimetused.append(filmi_nimetus)
-    print(f"Lisati: {lemmikfilmid} - {filmi_nimetus}")
-    print(lemmikfilmid)
-    print(Lfilmi_nimetused)
-
+print(lemmikfilmid)
 KõigeLemmikumFilm = ""
 while(KõigeLemmikumFilm == ""):
-    KõigeLemmikumFilm = input("Mis on sinu kõige lemmikum film kogu aegade jooksul? 1-Kevad,2-Suvi,3-Sügis,4-Talv")
-    suvaline_arv = randint(1,4)
-    if suvaline_arv ==1:
-        print("Kevad")
-    elif suvaline_arv ==2:
-        print("Suvi")
-    elif suvaline_arv ==3:
-        print("Sügis")
-    elif suvaline_arv ==4:
-        print("Talv")
-    print(suvaline_arv)
+    KõigeLemmikumFilm = input("\nMis on sinu kõige lemmikum film kogu aegade jooksul? ")
+    if KõigeLemmikumFilm in lemmikfilmid:
+        print("Ossa, oled oma lemmiku isegi kaks korda pannud!")
+    else:
+        print(f"Aga kus on sinu '{KõigeLemmikumFilm}'?")
+        muljetavaldav = input(f"Kas sulle meeldib '{KõigeLemmikumFilm}'? (jah/ei): ").lower()
+        if muljetavaldav == "jah":
+            lemmikfilmid.append(KõigeLemmikumFilm.strip())
+            print(f"Lisati '{KõigeLemmikumFilm}' ka sinu lemmikfilmide nimekirja!")
+        else:
+            print("Aga miks? See on ju hea film!")
+
+if "Terminaator" in lemmikfilmid:
+    print("Youll be back")
+elif "Vanamees" in lemmikfilmid:
+    print("Aga kuš šu šnikurš on šiiš?")
+else:
+    print("Vali enda jaoks sobiv film,siis")
     
-    KõigeLemmikumFilm = input("Kas su film on siin järjendis olemas? (jah/ei)")
-    if KõigeLemmikumFilm == "jah":
-        print("Ossa,oled olnud kaks korda enda lemmikfilmi pannud")
-    elif KõigeLemmikumFilm == "ei":
-        KusOn = ""
-        KusOn = input("Kus on sinu film?(kuskil on/ei tea)")
-        if KusOn == "kuskil on":
-            print("Siis,sisesta enda lemmikfilm ka siia nimekirja.")
-        elif KusOn == "ei tea":
-            print("Kui ei tea siis ei tea,vaata filmide nimekirju,võib olla leiad enda lemmikfilmi ka sealt üles")
-            film = ""
-            while(film == ""):
-                film = input("Kas sulle meeldib sisestatud film? (jah/ei)")
-                if film == "jah":
-                    lemmikfilmid = []
-                    hetkesisestus = "a"
-                    while(hetkesisestus != ""):
-                        hetkesisestus = input("Sisestage enda lemmikud filmid,kui rohkem ei ole,vajutage enter")
-                        if hetkesisestus != "":
-                            lemmikfilmid.append(hetkesisestus)
-                        print(lemmikfilmid)
-                elif film == "ei":
-                    print("aga miks? See on ju hea")
-                    
-                    Terminaator = ""
-                    Vanamehe_film = ""
-                    Terminaator = input("Su üks lemmikfilmidest oli Terminaator,valik(1)")
-                    Vanamehe_film = input("Su üks lemmikfilmidest oli Vanamehe film,valik(2)")
-                    suvaline_arv = randint(1,2)
-                    if suvaline_arv ==1:
-                        print("youll be back")
-                    elif suvaline_arv ==2:
-                        print("aga kuš šu šnikurš on šiiš?")
-filmiloend = ""
-while(filmiloend == ""):
-    filmiloend = int(input("Loenda kõik filmid kokku?"))
-    if filmiloend <= 5:
-        print("sa ei vaata väga palju filme vist")
-    if filmiloend >= 5 and arv <= 10:
-        print("käid tihti kinos?")
-    elif filmiloend > 10:
-        print("siis, pole mul siin midagi öelda härra movieguru, headaega")
+filmide_arv = len(lemmikfilmid)
+print(f"\nSul on kokku {filmide_arv} lemmikfilmi.")
+if filmide_arv <= 5:
+    print("Sa ei vaata väga palju filme vist.")
+elif 5 < filmide_arv <= 10:
+    print("Käid tihti kinos?")
+elif filmide_arv > 10:
+    print("Siis, pole mul siin midagi öelda härra movieguru, headaega.")
+                   
+
         
                     
                     
