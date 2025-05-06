@@ -1,0 +1,38 @@
+# loeb failist laulusõnu (ise valid laulu)
+# kuvab välja kõik sõnad
+# arvutab kokku mitu täishäälikut on (aeiouõäöüy)
+# kuvab välja kõik sõnad mis on pikemad kui 7 tähte
+# laseb kasutajal kirjutada ise ühe värsi (4 rida) juurde
+täishäälikud = 0
+
+fail = open("laul.txt", encoding="utf-8")
+laulusõnad = []
+for rida in fail:
+    print("Lugesin sellise rea: " + rida)
+    täishäälikud += rida.count("a")
+    täishäälikud += rida.count("e")
+    täishäälikud += rida.count("i")
+    täishäälikud += rida.count("o")
+    täishäälikud += rida.count("u")
+    täishäälikud += rida.count("õ")
+    täishäälikud += rida.count("ä")
+    täishäälikud += rida.count("ö")
+    täishäälikud += rida.count("ü")
+    täishäälikud += rida.count("y")
+pikemad_sõnad = [sõna for sõna in laulusõnad if len(sõna) > 7]
+print("\nSõnad, mis on pikemad kui 7 tähte:")
+for sõna in pikemad_sõnad:
+    print(sõna)
+print(täishäälikud)
+fail.close()
+    print("\nPalun sisestage oma värsiread (4 rida):")
+    kasutaja_värs = []
+    for i in range(4):
+        print("Lugesin sellise rea: " + rida)
+        rida = input("Rida "+str(i + 1)+": ")
+        kasutaja_värs.append(rida)
+        kasutaja_värsi_sõne = "\n".join(kasutaja_värs)
+        print("\nTeie lisatud värsid:")
+print(kasutaja_värsi_sõne)
+
+
