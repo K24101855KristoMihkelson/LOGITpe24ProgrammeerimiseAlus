@@ -1,0 +1,75 @@
+from tkinter import *
+from time import sleep
+from os import path
+
+
+objektid = ["pall", "ruubik-kuubik", "vihmavari", "vape"]
+objekt = input("Mis objekt sulle meeldib " + str(objektid) + "? ")
+
+
+failinimed = [objekt + ".gif", objekt + ".png"]
+fail = None
+found = False
+for f in failinimed:
+    if path.exists(f):
+        fail = f
+        found = True
+
+if not fail:
+    print("Pildi faili ei leitud.")
+    exit()
+
+# 3. Tee aken ja lõuend
+raam = Tk()
+raam.title("Liikuv objekt")
+tahvel = Canvas(raam, width=2000, height=2000)
+tahvel.pack()
+
+# 4. Lae ainult see pilt, mida vaja
+pilt = PhotoImage(file=fail)
+obj = tahvel.create_image(100, 100, image=pilt, anchor=NW)  
+
+raam.update()
+
+
+for i in range(50):
+    tahvel.move(obj, 5, 0)
+    raam.update()
+    sleep(0.03)
+
+for i in range(50):
+    tahvel.move(obj, -5, 0)
+    raam.update()
+    sleep(0.03)
+
+for i in range(50):
+    tahvel.move(obj, 0, 5)
+    raam.update()
+    sleep(0.03)
+
+for i in range(50):
+    tahvel.move(obj, 0, -5)
+    raam.update()
+    sleep(0.03)
+
+for _ in range(30):
+    tahvel.move(obj, 5, 0)
+    raam.update()
+    sleep(0.02)
+
+for _ in range(30):
+    tahvel.move(obj, 0, 5)
+    raam.update()
+    sleep(0.02)
+
+for _ in range(30):
+    tahvel.move(obj, -5, 0)
+    raam.update()
+    sleep(0.02)
+
+for _ in range(30):
+    tahvel.move(obj, 0, -5)
+    raam.update()
+    sleep(0.02)
+
+raam.mainloop()
